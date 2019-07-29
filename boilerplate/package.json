@@ -1,0 +1,16 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "sled-test-runner remote --artifacts-override-policy disable",
+    "test:local": "sled-test-runner local"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "santa-integration-tests": "^2.0.0-alpha.35",
+    "sled-test-runner": "^1.0.202"
+  }
+}

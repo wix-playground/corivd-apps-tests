@@ -1,0 +1,10 @@
+{
+  "name": "sled-as-a-service-core-layer",
+  "version": "1.0.0",
+  "dependencies": {
+    "sled-test-runner": "^1.0.205"
+  },
+  "bundledDependencies": [
+    "sled-test-runner"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "sled-as-a-service-function",
+  "version": "1.0.0",
+  "dependencies": {
+    "sled-test-runner": "../../../../../sled/packages/sled-test-runner/"
+  },
+  "bundledDependencies": [
+    "sled-test-runner"
+  ]
+}
