@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "name": "Corvid 🛷☁️",
+  "version": "0.2.0",
+  "description": "POC extension",
+  "content_scripts": [{
+    "css": ["styles.css"],
+    "js": ["content.js"],
+    "run_at": "document_start",
+    "matches": ["*://www.wix.com/dashboard/*"]
+  }]
+}
