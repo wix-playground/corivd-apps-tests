@@ -27,6 +27,7 @@
     "@wix/wix-bootstrap-renderer": "latest",
     "@wix/wix-express-csrf": "latest",
     "@wix/wix-express-require-https": "latest",
+    "@wix/wix-express-timeout": "^1.1.894",
     "axios": "~0.16.0",
     "bootstrap-hot-loader": "^3.19.3",
     "express": "~4.15.0",
@@ -34,6 +35,7 @@
     "react": "16.7.0",
     "react-dom": "16.7.0",
     "react-i18next": "^7.11.0",
+    "sled-test-runner": "^1.0.212",
     "source-map-support": "^0.5.11"
   },
   "devDependencies": {

@@ -2,6 +2,8 @@ import { Router } from 'express';
 import { hot } from 'bootstrap-hot-loader';
 import * as wixExpressCsrf from '@wix/wix-express-csrf';
 import * as wixExpressRequireHttps from '@wix/wix-express-require-https';
+import { replay } from 'sled-test-runner/dist/src/cli';
+import wixExpressTimeout from '@wix/wix-express-timeout';
 
 // This function is the main entry for our server. It accepts an express Router
 // (see http://expressjs.com) and attaches routes and middlewares to it.
@@ -31,6 +33,13 @@ export default hot(module, (app: Router, context) => {
 
     // Send a response back to the client.
     res.renderView('./index.ejs', renderModel);
+  });
+
+  app.use('/sled/replay', wixExpressTimeout(60 * 1000));
+
+  app.get('/sled/replay', async (req, res) => {
+    const result = await replay({ artifact: 'corivd-apps-e2e-boilerplate', hash: 'bd28d6c' });
+    res.send(JSON.stringify(result));
   });
 
   function getRenderModel(req) {

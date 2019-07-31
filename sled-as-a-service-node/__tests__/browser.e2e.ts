@@ -3,6 +3,6 @@ describe('React application', () => {
     await page.goto(app.getUrl('/'));
     await page.waitForSelector('h2');
 
-    expect(await page.$eval('h2', e => e.innerText)).toEqual('Hello World!');
+    expect(await page.$eval('h2', (e: any) => e.innerText)).toEqual('Hello World!');
   });
 });
