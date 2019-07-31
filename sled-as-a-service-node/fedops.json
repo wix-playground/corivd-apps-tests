@@ -1,0 +1,11 @@
+{
+    "appName": "sled-as-a-service-node",
+    "notifications": {
+      "slack_channels": [
+        "fedops-urgent-default"
+      ]
+    },
+    "deploy_annotations": [
+      "sled-as-a-service-node"
+    ]
+  }
