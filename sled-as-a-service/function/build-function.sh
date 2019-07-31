@@ -11,7 +11,7 @@ rm -rf node_modules
 rm -rf package-lock.json
 
 echo "Install only non-dev dependencies"
-npm install --production
+yarn install --production
 
 echo "Start zipping $filename"
 zip -r $filename node_modules/* index.js &> /dev/null

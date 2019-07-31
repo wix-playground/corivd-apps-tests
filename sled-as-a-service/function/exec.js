@@ -6,9 +6,9 @@ const invoke_cmd = `aws lambda invoke --function-name sled-as-a-service --log-ty
 
 function execute(command) {
     return new Promise((resolve, reject) => {
-        exec(command, (_error, stdout, sdterr) => {
-            if (sdterr) {
-                reject(sdterr)
+        exec(command, (error, stdout) => {
+            if (error) {
+                reject(error)
                 return;
             }
             resolve(stdout)
