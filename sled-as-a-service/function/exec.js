@@ -5,8 +5,14 @@ const build_cmd = `bash build-function.sh`
 const invoke_cmd = `aws lambda invoke --function-name sled-as-a-service --log-type Tail --payload '{"artifact":"corivd-apps-e2e-boilerplate","hash":"bd28d6c"}' --region us-east-1 blah.txt`;
 
 function execute(command) {
-    return new Promise((resolve) => {
-        exec(command, (_error, stdout) => resolve(stdout));
+    return new Promise((resolve, reject) => {
+        exec(command, (_error, stdout, sdterr) => {
+            if (sdterr) {
+                reject(sdterr)
+                return;
+            }
+            resolve(stdout)
+        });
     });
 };
 
@@ -18,8 +24,13 @@ function parseLog(raw) {
 async function main() {
     if (process.argv[2] === '--build') {
         console.log('build and publish new function...')
-        const out = await execute(build_cmd);
-        console.log(`=== build output ===\n\n${out}\n==============`)
+        try {
+            const out = await execute(build_cmd);
+            console.log(`=== build output ===\n\n${out}\n==============`)
+        } catch (error) {
+            console.error(error)
+            return;
+        }
     }
     console.log('invoking function...')
     const raw = await execute(invoke_cmd);

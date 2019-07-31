@@ -3,10 +3,7 @@ set -e
 
 id=$(date +%s%N)
 filename="sled-as-a-service-$id"
-echo "Verify code is valid (eslint)"
-npm install
-echo "Switch to node version: 8"
-unset npm_config_prefix
+
 export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh";
 nvm install 8.10
 
