@@ -35,11 +35,22 @@ export default hot(module, (app: Router, context) => {
     res.renderView('./index.ejs', renderModel);
   });
 
+  const _greynode: any[] = [];
+
+  context.greynode.aConsumer({topic: 'html-site-rc-published-events', groupId: context.app.name}, (message, metadata) => {
+    _greynode.push(JSON.stringify(message))
+});
+
   app.use('/sled/replay', wixExpressTimeout(60 * 1000));
 
   app.get('/sled/replay', async (req, res) => {
-    const result = await replay({ artifact: 'corivd-apps-e2e-boilerplate', hash: 'bd28d6c' });
-    res.send(JSON.stringify(result));
+    const args = { artifact: 'corivd-apps-e2e-boilerplate', hash: 'bd28d6c' };
+    await replay(args);
+    res.send(`👍 executed tests on ${JSON.stringify(args, null, 2)}`);
+  });
+
+  app.get('/sled/greynode-dump', async (req, res) => {
+    res.send(JSON.stringify(_greynode));
   });
 
   function getRenderModel(req) {
