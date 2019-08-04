@@ -1,0 +1,36 @@
+{
+  "name": "sled-service",
+  "version": "1.0.0",
+  "description": "sled service",
+  "main": "index.js",
+  "author": "Tom Peres <tomp@wix.com>",
+  "license": " ISC",
+  "scripts": {
+    "build": ":",
+    "lint": "eslint .",
+    "test": "DEBUG='wix:*' mocha --exit --reporter mocha-env-reporter 'test/**/*.spec.js' 'test/**/*.it.js' 'test/**/*.e2e.js'",
+    "posttest": "npm run lint -s",
+    "release": "wnpm-release"
+  },
+  "publishConfig": {
+    "registry": "http://repo.dev.wixpress.com/artifactory/api/npm/npm-local/"
+  },
+  "dependencies": {
+    "@wix/wix-bootstrap-greynode": "~1.0.0",
+    "@wix/wix-bootstrap-ng": "~1.0.1808",
+    "@wix/wix-bootstrap-testkit": "~1.1.866",
+    "express": ">=4.16.3"
+  },
+  "devDependencies": {
+    "@wix/eslint-config-spjs": "~1.0.596",
+    "@wix/wix-greynode-testkit": "~1.0.0",
+    "axios": "0.19.0",
+    "chai": "4.2.0",
+    "chai-as-promised": "7.1.1",
+    "chai-things": "0.2.0",
+    "mocha": "6.1.4",
+    "mocha-env-reporter": "4.0.0",
+    "wix-eventually": "2.2.0",
+    "wnpm-ci": "7.0.116"
+  }
+}
