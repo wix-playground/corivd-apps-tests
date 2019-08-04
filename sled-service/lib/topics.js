@@ -1,6 +1,5 @@
 module.exports = {
-  CREATED_SITES: 'topic-sites-created',
-  GREETING: 'topic-greeting'
+  PUBLISH_RC: 'html-site-rc-published-events'
 };
 
-module.exports.external = [module.exports.CREATED_SITES];
+module.exports.external = [module.exports.PUBLISH_RC];

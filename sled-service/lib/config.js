@@ -4,9 +4,7 @@ const TOPICS = require('./topics');
 module.exports = context => {
 
   const sites = [];
-  context.greynode.aConsumer({topic: TOPICS.CREATED_SITES, groupId: context.app.name}, (site, aspects) => sites.push(site));
-  const producer = context.greynode.aProducer(TOPICS.GREETING);
-  const greet = (name, aspects) => producer.produce({hello: name}, aspects);
+  context.greynode.aConsumer({topic: TOPICS.PUBLISH_RC, groupId: context.app.name}, (site, aspects) => sites.push(site));
 
-  return {sites, greet};
+  return {sites};
 };
