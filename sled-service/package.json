@@ -17,6 +17,8 @@
     "registry": "http://repo.dev.wixpress.com/artifactory/api/npm/npm-local/"
   },
   "dependencies": {
+    "@wix/ambassador": "^4.0.160",
+    "@wix/ambassador-wix-public-html-info-webapp": "^1.0.20",
     "@wix/wix-bootstrap-greynode": "~1.0.0",
     "@wix/wix-bootstrap-ng": "~1.0.1808",
     "@wix/wix-bootstrap-testkit": "~1.1.866",
@@ -24,6 +26,7 @@
     "express": ">=4.16.3"
   },
   "devDependencies": {
+    "@wix/ambassador-testkit": "^4.0.140",
     "@wix/eslint-config-spjs": "~1.0.596",
     "@wix/wix-greynode-testkit": "~1.0.0",
     "@wix/wix-proto-codegen": "^2.0.338",
