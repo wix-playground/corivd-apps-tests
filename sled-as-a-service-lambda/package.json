@@ -1,6 +1,10 @@
 {
   "name": "sled-as-a-service-function",
   "version": "1.0.0",
+  "scripts": {
+    "build-and-publish": "node exec.js --build",
+    "invoke": "node exec.js"
+  },
   "dependencies": {
     "sled-test-runner": "latest"
   },

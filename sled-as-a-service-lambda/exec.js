@@ -2,7 +2,7 @@ const exec = require('child_process').exec;
 
 const build_cmd = `bash build-function.sh`
 
-const invoke_cmd = `aws lambda invoke --function-name sled-as-a-service --log-type Tail --payload '{"artifact":"corivd-apps-e2e-boilerplate","hash":"bd28d6c"}' --region us-east-1 blah.txt`;
+const invoke_cmd = `aws lambda invoke --function-name sled-as-a-service --log-type Tail --payload '{"artifact":"corivd-apps-e2e-boilerplate"}' --region us-east-1 blah.txt`;
 
 function execute(command) {
     return new Promise((resolve, reject) => {
