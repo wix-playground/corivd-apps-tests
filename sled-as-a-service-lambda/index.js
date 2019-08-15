@@ -5,6 +5,8 @@ const replayForArtifact = async event => {
     const {artifact,rcRevision} = event
     const result = await replay({ artifact });
     await writeArtifactTetsResult({artifact, rcRevision, result})
+    const history = await fetchAllRCTestExecutionsForArtifact({artifact})
+    return {history, currentRunResult: result}
 }
 
 function uuidv4() {
@@ -29,7 +31,7 @@ const writeArtifactTetsResult = async event => {
             S: uuidv4(),
            }, 
            "rcRevision": {
-            S: rcRevision,
+            N: rcRevision,
            }, 
          "result": {
            S: `${JSON.stringify(result)}`
