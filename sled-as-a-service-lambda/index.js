@@ -4,7 +4,7 @@ const { replay } = require('sled-test-runner/dist/src/cli')
 const replayForArtifact = async event => {
     const {artifact,rcRevision} = event
     const result = await replay({ artifact });
-    await writeArtifactTetsResult({artifact, rcRevision, success: result.success})
+    await writeArtifactTetsResult({artifact, rcRevision, result})
 }
 
 function uuidv4() {
@@ -15,7 +15,7 @@ function uuidv4() {
   }
 
 const writeArtifactTetsResult = async event => {
-    const {artifact, success, rcRevision} = event
+    const {artifact, result, rcRevision} = event
     const date = new Date().toLocaleString()
     var ddb = new DynamoDB({apiVersion: '2012-08-10', region: 'us-east-1'});
 
@@ -31,8 +31,8 @@ const writeArtifactTetsResult = async event => {
            "rcRevision": {
             S: rcRevision,
            }, 
-         "success": {
-           S: `${success}`
+         "result": {
+           S: `${JSON.stringify(result)}`
           }, 
          "date": {
            S: date
