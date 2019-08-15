@@ -18,7 +18,7 @@ function uuidv4() {
 
 const writeArtifactTetsResult = async event => {
     const {artifact, result, rcRevision} = event
-    const date = new Date().toLocaleString()
+    const date = new Date().toISOString()
     var ddb = new DynamoDB({apiVersion: '2012-08-10', region: 'us-east-1'});
 
 
