@@ -1,5 +1,4 @@
 const { DynamoDB } = require('aws-sdk');
-// const AWS = require('aws-sdk/global');
 const { replay } = require('sled-test-runner/dist/src/cli')
 
 const replayForArtifact = async event => replay({ artifact: event.artifact });
@@ -38,22 +37,6 @@ const writeArtifactTetsResult = async event => {
         // ReturnConsumedCapacity: "TOTAL", 
         TableName: "sled_rc_execution_history"
        };
-    //   const params = {
-    //     TableName: 'sled_rc_execution_history',
-    //     Item: {
-    //         Item: {
-    //             artifact: {
-    //               S: artifact
-    //             },
-    //             date: {
-    //                 S: `${date}`
-    //               },
-    //             result: {
-    //                 S: `${result}`
-    //               },
-    //           }
-    //         }
-    //   };
     const saveResult = await ddb.putItem(params).promise()
     console.log(`save result`)
     console.log(JSON.stringify(saveResult, null, 4))
