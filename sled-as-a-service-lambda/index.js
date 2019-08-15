@@ -1,7 +1,11 @@
 const { DynamoDB } = require('aws-sdk');
 const { replay } = require('sled-test-runner/dist/src/cli')
 
-const replayForArtifact = async event => replay({ artifact: event.artifact });
+const replayForArtifact = async event => {
+    const {artifact,rcRevision} = event
+    const result = await replay({ artifact });
+    await writeArtifactTetsResult({artifact, rcRevision, success: result.success})
+}
 
 function uuidv4() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
