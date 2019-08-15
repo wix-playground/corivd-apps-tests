@@ -42,7 +42,22 @@ const writeArtifactTetsResult = async event => {
     console.log(JSON.stringify(saveResult, null, 4))
 }
 
+const fetchAllRCTestExecutionsForArtifact = async event => {
+    const {artifact} = event
+    let dynamoDb = new DynamoDB.DocumentClient();
+    var params = {
+        TableName: "sled_rc_execution_history",
+        Select: "ALL_ATTRIBUTES",
+        FilterExpression: "artifact = :v",
+        ExpressionAttributeValues: { ":v": artifact }
+    };
+    const result =  dynamoDb.scan(params).promise();
+    console.log(JSON.stringify(result, null, 4))
+    return result
+}
+
 const actions = {
+    fetchAllRCTestExecutionsForArtifact,
     writeArtifactTetsResult,
     replayForArtifact
 }
