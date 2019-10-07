@@ -19,5 +19,9 @@
       <name>Nir Naor</name>
       <email>nirna@wix.com</email>
     </developer>
+    <developer>
+      <name>Arye Lukashevski</name>
+      <email>aryel@wix.com</email>
+    </developer>
   </developers>
 </project>
