@@ -23,5 +23,12 @@
       <name>Arye Lukashevski</name>
       <email>aryel@wix.com</email>
     </developer>
+    <developer>
+        <name>Tomer Ohana</name>
+        <email>tomero@wix.com</email>
+        <roles>
+            <role>owner</role>
+        </roles>
+    </developer>
   </developers>
 </project>
