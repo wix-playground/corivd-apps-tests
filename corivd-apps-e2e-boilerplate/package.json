@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "santa-integration-tests": "^2.0.0-alpha.35",
-    "sled-test-runner": "^1.0.202"
+    "@wix/santa-integration-tests": "^2.0.0-alpha.35",
+    "@wix/sled-test-runner": "^1.0.202"
   }
 }
