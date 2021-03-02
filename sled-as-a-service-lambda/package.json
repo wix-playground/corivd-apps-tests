@@ -6,9 +6,9 @@
     "invoke": "node exec.js"
   },
   "dependencies": {
-    "sled-test-runner": "latest"
+    "@wix/sled-test-runner": "latest"
   },
   "bundledDependencies": [
-    "sled-test-runner"
+    "@wix/sled-test-runner"
   ]
 }
