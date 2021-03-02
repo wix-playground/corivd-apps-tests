@@ -1,5 +1,5 @@
 const { DynamoDB } = require('aws-sdk');
-const { replay } = require('sled-test-runner/dist/src/cli')
+const { replay } = require('@wix/sled-test-runner/dist/src/cli')
 
 const replayForArtifact = async event => {
     const {artifact,rcRevision} = event
