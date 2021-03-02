@@ -1,4 +1,4 @@
-/// <reference types="sled-test-runner" />
+/// <reference types="@wix/sled-test-runner" />
 import { Page } from 'puppeteer';
 
 describe('wix.com sanity', () => {
