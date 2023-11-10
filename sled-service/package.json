@@ -30,7 +30,7 @@
     "@wix/eslint-config-spjs": "~1.0.596",
     "@wix/wix-greynode-testkit": "~1.0.0",
     "@wix/wix-proto-codegen": "^2.0.338",
-    "axios": "0.19.0",
+    "axios": "1.6.0",
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
     "chai-things": "0.2.0",
